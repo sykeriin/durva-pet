@@ -1,0 +1,9 @@
+{
+  "name": "durva-pet-desktop",
+  "version": "1.0.0",
+  "description": "Durva Pet: a pixel-art desktop pet.",
+  "main": "main.js",
+  "scripts": { "start": "electron ." },
+  "devDependencies": { "electron": "^33.0.0" },
+  "license": "MIT"
+}

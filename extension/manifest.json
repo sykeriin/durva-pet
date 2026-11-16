@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Durva Pet",
+  "version": "2.0.0",
+  "description": "A pixel-art Durva who lives at the bottom of your browser. Poke him, flirt back, study with him, dress him up.",
+  "permissions": ["storage", "notifications"],
+  "action": { "default_title": "Durva Pet", "default_popup": "popup.html", "default_icon": { "48": "icons/48.png", "128": "icons/128.png" } },
+  "icons": { "48": "icons/48.png", "128": "icons/128.png" },
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    { "matches": ["http://*/*", "https://*/*"], "js": ["sprites.js", "pet.js", "content.js"], "run_at": "document_idle" }
+  ]
+}

@@ -1,0 +1,11 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Durva Pet demo</title>
+<body style="margin:0;min-height:100vh;background:#f2f1ec;font:16px system-ui;padding:40px">
+<h1>Durva Pet, in a plain page</h1>
+<p>Poke him. Double-click to dance. Right-click for the menu. Drag him around.</p>
+<script src="sprites.js"></script>
+<script src="pet.js"></script>
+<script>
+  window.pet = DurvaPet.create({ root: document.body, adapter: {} });
+</script>

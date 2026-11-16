@@ -1,0 +1,55 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+  :root{--ink:#2b2230;--cream:#fff8ef;--pink:#ffd9e4;--mint:#c8f0dc;--butter:#fff0b8;--lav:#ddd2ff;--peach:#ffdcc0}
+  *{box-sizing:border-box}
+  body{margin:0;width:320px;background:var(--cream);color:var(--ink);font:800 12px/1.3 ui-rounded,"Nunito","Segoe UI",system-ui,sans-serif;padding:12px}
+  .hero{display:flex;gap:10px;align-items:flex-end;background:var(--pink);border:3px solid var(--ink);border-radius:18px;box-shadow:4px 4px 0 var(--ink);padding:10px;margin-bottom:10px}
+  .hero img{width:56px;height:84px;image-rendering:pixelated}
+  h1{margin:0;font-size:17px}
+  .clock{font-size:26px;letter-spacing:.02em;margin:1px 0}
+  p{margin:0;font-weight:700;color:#7a5f80}
+  .tabs{display:flex;gap:4px;background:#f4e8da;border-radius:999px;padding:3px;margin-bottom:6px}
+  .tabs button{flex:1;border:0;background:none;box-shadow:none;border-radius:999px;color:#8a6f8e;padding:6px 0}
+  .tabs button.on{background:var(--ink);color:var(--cream)}
+  h2{margin:10px 3px 5px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#a58aa8}
+  .row{display:flex;flex-wrap:wrap;gap:5px}
+  .pane{display:none}.pane.on{display:block}
+  button{font:inherit;border:2px solid var(--ink);background:var(--pink);border-radius:999px;padding:6px 10px;cursor:pointer;color:var(--ink);box-shadow:0 2px 0 var(--ink);transition:transform .08s}
+  .row button:nth-child(5n+2){background:var(--mint)}.row button:nth-child(5n+3){background:var(--butter)}.row button:nth-child(5n+4){background:var(--lav)}.row button:nth-child(5n+5){background:var(--peach)}
+  button:hover{transform:translateY(-1px)}button:active{transform:translateY(2px);box-shadow:none}
+  button.red{background:#e0453a;color:var(--cream)}
+  button.on-toggle{background:var(--ink);color:var(--cream)}
+  input[type=number]{font:inherit;width:60px;border:2px solid var(--ink);border-radius:999px;padding:5px 9px;background:#fff;color:var(--ink)}
+  .sw{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+  .sw button{padding:0;height:46px;border-radius:14px;position:relative;overflow:hidden;background:#fff}
+  .sw button.on{outline:3px solid #ff7aa2;outline-offset:1px}
+  .sw span{position:absolute;left:0;right:0;height:25%}
+  .sw em{position:absolute;bottom:2px;left:0;right:0;text-align:center;font:800 9px/1 inherit;font-style:normal;background:rgba(255,248,239,.85)}
+  .pick{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+  .pick label{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:10px;color:#8a6f8e}
+  .pick input{width:100%;height:30px;border:2px solid var(--ink);border-radius:10px;padding:0;background:none;cursor:pointer}
+</style>
+<div class="hero"><img id="face" alt=""><div><h1>Durva Pet</h1><div class="clock" id="clock">No timer</div><p id="sub">Poke him on any page.</p></div></div>
+<div class="tabs"><button data-tab="do" class="on">Do</button><button data-tab="focus">Focus</button><button data-tab="fit">Outfit</button><button data-tab="me">Me</button></div>
+<div class="pane on" id="p-do"></div>
+<div class="pane" id="p-focus">
+  <h2>Study with him</h2>
+  <div class="row"><button class="red" data-t="pomodoro:25">🍅 Pomodoro 25/5</button><button data-t="focus:45">45 min</button><button data-t="stopwatch:0">⏱ Stopwatch</button></div>
+  <h2>Custom</h2>
+  <div class="row"><input id="mins" type="number" min="1" max="600" value="15"><button data-t="custom">Start</button><button id="stop">Stop</button></div>
+  <h2>Reminders</h2>
+  <div class="row"><button id="nag">Nudges</button></div>
+</div>
+<div class="pane" id="p-fit">
+  <h2>Outfits</h2><div class="sw" id="sw"></div>
+  <h2>Make your own</h2><div class="pick" id="pick"></div>
+  <h2>Extras</h2><div class="row"><button id="cat">🐱 Cat boy mode</button></div>
+</div>
+<div class="pane" id="p-me">
+  <h2>Pet</h2>
+  <div class="row"><button id="vis">Hide</button><button id="big">Bigger</button><button id="small">Smaller</button><button id="wander">Stay put</button></div>
+</div>
+<script src="sprites.js"></script>
+<script src="pet.js"></script>
+<script src="popup.js"></script>
